@@ -26,7 +26,10 @@ NSString* name;
 %hook SBUserAgent
 - (void)playRingtoneAtPath:(id)arg1 vibrationPattern:(id)arg2{
     name = [name lowercaseString]; //morse utilities only takes lowercase chars
-
+    char first;
+    if(name.length>=1) first = [name characterAtIndex:0];
+    else first = '0';
+    if(first>47 && first<58){
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
     NSMutableArray* arr = [NSMutableArray array ];
 
@@ -37,6 +40,7 @@ NSString* name;
     [dict setObject:arr forKey:@"VibePattern"];
     [dict setObject:[NSNumber numberWithInt:1] forKey:@"Intensity"];
     arg2 = dict;
+    }
     %orig;  
 }
 %end

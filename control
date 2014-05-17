@@ -1,7 +1,7 @@
 Package: com.connorpearson.morsering
 Name: MorseRing
-Depends: mobilesubstrate
-Version: 0.0.1
+Depends: firmware (>= 7.0), mobilesubstrate
+Version: 1.0.0
 Architecture: iphoneos-arm
 Description: Changes your phone's vibration pattern to spell out the caller's name in morse code.
 Maintainer: Connor Pearson
