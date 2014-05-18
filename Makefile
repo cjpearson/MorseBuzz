@@ -4,8 +4,8 @@ export TARGET=iphone:latest:4.3
 SDKVERSION = 7.0
 include theos/makefiles/common.mk
 
-TWEAK_NAME = MorseRing
-MorseRing_FILES = Tweak.xm MorseUtilities.m
+TWEAK_NAME = MorseBuzz
+MorseBuzz_FILES = Tweak.xm MorseUtilities.m
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
