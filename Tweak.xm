@@ -29,7 +29,8 @@ NSString* name;
     char first;
     if(name.length>=1) first = [name characterAtIndex:0];
     else first = '0';
-    if(!(first>47 && first<58)){
+    //check if in lowercase range
+    if(first>=97 && first<=122){
         NSMutableDictionary* dict = [NSMutableDictionary dictionary];
         NSMutableArray* arr = [NSMutableArray array ];
 
