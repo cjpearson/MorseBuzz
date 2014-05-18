@@ -29,17 +29,17 @@ NSString* name;
     char first;
     if(name.length>=1) first = [name characterAtIndex:0];
     else first = '0';
-    if(first>47 && first<58){
-    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
-    NSMutableArray* arr = [NSMutableArray array ];
+    if(!(first>47 && first<58)){
+        NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+        NSMutableArray* arr = [NSMutableArray array ];
 
-    for(int i=0; i< name.length; i++){
-        [MorseUtilities addChar:[name characterAtIndex:i] to:arr];
-    }
+        for(int i=0; i< name.length; i++){
+            [MorseUtilities addChar:[name characterAtIndex:i] to:arr];
+        }
 
-    [dict setObject:arr forKey:@"VibePattern"];
-    [dict setObject:[NSNumber numberWithInt:1] forKey:@"Intensity"];
-    arg2 = dict;
+        [dict setObject:arr forKey:@"VibePattern"];
+        [dict setObject:[NSNumber numberWithInt:1] forKey:@"Intensity"];
+        arg2 = dict;
     }
     %orig;  
 }
