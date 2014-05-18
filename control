@@ -1,5 +1,5 @@
-Package: com.connorpearson.morsering
-Name: MorseRing
+Package: com.connorjpearson.MorseBuzz
+Name: Morse Buzz
 Depends: firmware (>= 7.0), mobilesubstrate
 Version: 1.0.0
 Architecture: iphoneos-arm
