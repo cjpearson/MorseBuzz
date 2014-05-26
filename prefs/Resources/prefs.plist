@@ -28,7 +28,7 @@
 			<key>key</key>
 			<string>nameMode</string>
 			<key>label</key>
-			<string>Name Mode</string>
+			<string>Format</string>
 			<key>validTitles</key>
 			<array>
 				<string>Full Name</string>

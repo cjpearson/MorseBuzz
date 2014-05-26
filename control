@@ -1,7 +1,7 @@
 Package: com.connorjpearson.MorseBuzz
 Name: Morse Buzz
 Depends: firmware (>= 6.0), mobilesubstrate
-Version: 1.0.1
+Version: 1.1.0
 Architecture: iphoneos-arm
 Description: Changes your phone's vibration pattern to spell out the caller's name in morse code.
 Maintainer: Connor Pearson

@@ -1,7 +1,5 @@
 //  MorseUtilities.m
-//  passKey
 //  Created by Connor Pearson on 5/16/14.
-
 #import "MorseUtilities.h"
 static int unitSize = 300;
 

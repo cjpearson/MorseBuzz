@@ -26,25 +26,38 @@ NSString* name;
 %hook SBUserAgent
 - (void)playRingtoneAtPath:(id)arg1 vibrationPattern:(id)arg2{
     NSDictionary *prefs=[[NSDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.connorjpearson.morsebuzz.plist"];
-    NSLog(@"%@", [prefs objectForKey:@"nameMode"] );
-    NSLog(@"%@", [prefs objectForKey:@"enable"] );
-
-    NSLog(@"%@", [prefs description]);
-    NSLog(@"%@", [[prefs objectForKey:@"enabled"] boolValue] ? @"Yes" : @"No");
-    NSLog(@"%@", [[prefs objectForKey:@"enabled"] intValue] == 1 ? @"Yes" : @"No");
-    NSLog(@"%@", [[prefs objectForKey:@"enabled"] description]);
-
-
-
-
+    
     name = [name lowercaseString]; //morse utilities only takes lowercase chars
-
-
+    
+    NSArray* splitName = [name componentsSeparatedByString:@" "];
+    NSString* firstName = [splitName firstObject];
+    NSString* lastName = [splitName lastObject];
+    NSMutableString* initials = [[NSMutableString alloc] init];
+    
+    for(NSString* s in splitName){
+        [initials appendString:[s substringToIndex:1]];
+    }
+    
+    int nameMode = [[prefs objectForKey:@"nameMode"] intValue];
+    switch (nameMode) {
+        case 1:
+            name = firstName;
+            break;
+        case 2:
+            name = lastName;
+            break;
+        case 3:
+            name = initials;
+            break;
+        default:
+            break;
+    }
     char first;
     if(name.length>=1) first = [name characterAtIndex:0];
     else first = '0';
+
     //check if in lowercase range
-    if(first>=97 && first<=122){
+    if(first>=97 && first<=122 && [[prefs objectForKey:@"enabled"] boolValue]){
         NSMutableDictionary* dict = [NSMutableDictionary dictionary];
         NSMutableArray* arr = [NSMutableArray array ];
 
@@ -54,7 +67,7 @@ NSString* name;
 
         [dict setObject:arr forKey:@"VibePattern"];
         [dict setObject:[NSNumber numberWithInt:1] forKey:@"Intensity"];
-        if ([[prefs objectForKey:@"enabled"] boolValue]) arg2 = dict;
+        arg2 = dict;
     }
     %orig;
 }
