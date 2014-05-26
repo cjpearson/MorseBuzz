@@ -5,9 +5,9 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>prefs</string>
+	<string>MorseBuzzPrefs</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.connorjpearson.MorseBuzz~prefs</string>
+	<string>com.connorjpearson.morsebuzzprefs</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -23,6 +23,6 @@
 	<key>MinimumOSVersion</key>
 	<string>3.0</string>
 	<key>NSPrincipalClass</key>
-	<string>prefsListController</string>
+	<string>MorseBuzzPrefsListController</string>
 </dict>
 </plist>
